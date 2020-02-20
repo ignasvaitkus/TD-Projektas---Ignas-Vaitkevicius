@@ -6,4 +6,12 @@
     <RootNamespace>TowerDefense_Projektas</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="GUI\" />
+    <Folder Include="Controller\" />
+    <Folder Include="Enemies\" />
+    <Folder Include="Map\" />
+    <Folder Include="Towers\" />
+  </ItemGroup>
+
 </Project>
