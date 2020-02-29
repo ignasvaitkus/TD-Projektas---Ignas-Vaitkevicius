@@ -1,4 +1,5 @@
 ﻿using System;
+using TowerDefense_Projektas.Map;
 
 namespace TowerDefense_Projektas
 {
@@ -6,7 +7,11 @@ namespace TowerDefense_Projektas
     {
         static void Main(string[] args)
         {
-            
+            Console.WindowHeight = 45;
+            MapLayout mapLayout = new MapLayout();
+            mapLayout.Map();
+            mapLayout.Render();
+
         }
     }
 }

@@ -10,7 +10,6 @@
     <Folder Include="GUI\" />
     <Folder Include="Controller\" />
     <Folder Include="Enemies\" />
-    <Folder Include="Map\" />
     <Folder Include="Towers\" />
   </ItemGroup>
 
