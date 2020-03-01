@@ -26,7 +26,7 @@ namespace TowerDefense_Projektas.Towers
             int x = 0;
             mapLayout.RenderNewTower();
             RenderNewTower();
-            while (GameStart.TowerCount<=4)
+            while (x!=1)
             {
                 //Console.Clear();
 
@@ -84,12 +84,15 @@ namespace TowerDefense_Projektas.Towers
 
                         if (MapLayout.computerMapLayout[coordinates] == ' ')
                         { 
-                        x = 0;
-                        if(!towers.Contains(coordinates)) towers.Add(coordinates);
+                        if(!towers.Contains(coordinates) && GameStart.TowerCount <= 4) towers.Add(coordinates);
                         towerRender++;
                         RenderTowers();
                             GameStart.TowerCount++;
                         }
+                        break;
+
+                        case ConsoleKey.S:
+                        x = 1;
                         break;
                 }
             }

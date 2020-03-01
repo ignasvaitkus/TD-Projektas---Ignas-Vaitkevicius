@@ -9,7 +9,11 @@ namespace TowerDefense_Projektas.GameSettings
     class GameStart
     {
         MapLayout mapLayout = new MapLayout();
+
         MapRender tower = new MapRender(0, 0);
+
+        EnemyMovement enemyMovement = new EnemyMovement();
+
         public static int TowerCount = 0;
         public void GameLoop()
         {
@@ -19,7 +23,9 @@ namespace TowerDefense_Projektas.GameSettings
 
             tower.PlaceTowers();
 
+            enemyMovement.StartMovement();
 
+            
         }
     }
 }

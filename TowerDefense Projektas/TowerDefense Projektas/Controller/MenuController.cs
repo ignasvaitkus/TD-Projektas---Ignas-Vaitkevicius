@@ -9,6 +9,8 @@ namespace TowerDefense_Projektas.Controller
         public void Start()
         {
             gameStart.GameLoop();
+
+            Console.ReadKey();
         }
     }
 }
