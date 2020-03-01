@@ -8,6 +8,7 @@ namespace TowerDefense_Projektas.Towers
     class Tower : MovableObject, IMovable, IRenderable
     {
         MapLayout mapLayout = new MapLayout();
+        int coordinates = 0;
         public Tower(int x, int y) : base(x, y)
         {
 
@@ -16,16 +17,46 @@ namespace TowerDefense_Projektas.Towers
 
         public void MoveTower()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             int x = 0;
-            mapLayout.Map();
+            mapLayout.Render();
+            Render();
             while (x == 0)
             {
-                Console.Clear();
+                //Console.Clear();
 
-                //foreach (object xe in MapLayout.mapCoordinates)
-                //{ Console.Write(xe); }
-                mapLayout.Render();
-                Render();
+                coordinates = 0;
+                if (Y == 0) coordinates = X;
+                if (Y > 0) coordinates = Y * 120 + X;
+                if (MapLayout.computerMapLayout[coordinates] == '█')
+                {
+                    if (Console.ForegroundColor != ConsoleColor.Red)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        mapLayout.Render();
+                        Render();
+                    }
+
+                    if (MapLayout.mapLayout[coordinates] == '█')
+                    {
+
+                    }
+                    Render();
+                }
+                else if (MapLayout.computerMapLayout[coordinates] == ' ')
+                {
+                    if (Console.ForegroundColor != ConsoleColor.White)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.White;
+                        mapLayout.Render();
+                        Render();
+                    }
+                }
+                else throw new Exception("Klaida zemelapio renderinime");
+
+
                 ConsoleKeyInfo pressedChar = Console.ReadKey(true);
                 switch (pressedChar.Key)
                 {
@@ -43,12 +74,6 @@ namespace TowerDefense_Projektas.Towers
                         break;
                     case ConsoleKey.Enter:
 
-                        int coordinates=0;
-                        if (Y == 0) coordinates = X;
-                        if (Y > 0) coordinates = Y * 120 + X;
-                       // Console.Clear();
-                       // Console.Write(MapLayout.mapLayout[coordinates]);
-                       // Console.ReadKey();
                         if (MapLayout.computerMapLayout[coordinates] == ' ')
                         x = 1;
                         break;
@@ -58,34 +83,47 @@ namespace TowerDefense_Projektas.Towers
 
         public void ToLeft()
         {
-            if(X>=0)
+            if (X >= 0)
+            {
+                Console.SetCursorPosition(X, Y);
+                Console.Write(MapLayout.mapLayout[coordinates]);
                 X--;
-            if (X == -1)
-                X = 118;
+                Render();
+            }
         }
 
         public void ToRight()
         {
-            if(X<=118)
+            if (X <= 118)
+            {
+                Console.SetCursorPosition(X, Y);
+                Console.Write(MapLayout.mapLayout[coordinates]);
                 X++;
-            if (X == 119)
-                X = 0;
+                Render();
+            }
         }
 
         public void MoveUp()
         {
-            if(Y>0)
+            if (Y > 0)
+            {
+                Console.SetCursorPosition(X, Y);
+                Console.Write(MapLayout.mapLayout[coordinates]);
                 Y--;
-            if (Y == 0)
-                Y = 44;
+                Render();
+            }
         }
 
         public void MoveDown()
         {
-            if(Y<45)
+            if (Y < 45)
+            {
+                Console.SetCursorPosition(X, Y);
+
+                Console.Write(MapLayout.mapLayout[coordinates]);
                 Y++;
-            if (Y == 45)
-                Y = 0;
+                Render();
+            }
         }
 
         public void Render()
