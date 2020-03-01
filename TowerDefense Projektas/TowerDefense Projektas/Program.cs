@@ -1,5 +1,5 @@
 ﻿using System;
-using TowerDefense_Projektas.Map;
+using TowerDefense_Projektas.Controller;
 
 namespace TowerDefense_Projektas
 {
@@ -7,11 +7,10 @@ namespace TowerDefense_Projektas
     {
         static void Main(string[] args)
         {
+             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WindowHeight = 45;
-            MapLayout mapLayout = new MapLayout();
-            mapLayout.Map();
-            mapLayout.Render();
-
+            MenuController menu = new MenuController();
+            menu.Start();
         }
     }
 }

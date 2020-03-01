@@ -1,7 +1,7 @@
 ﻿namespace TowerDefense_Projektas.Interfaces
 {
-    interface IRenderable
+    interface IPrintable
     {
-        public void Render();
+        public void Print();
     }
 }

@@ -1,16 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>TowerDefense_Projektas</RootNamespace>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="GUI\" />
-    <Folder Include="Controller\" />
     <Folder Include="Enemies\" />
-    <Folder Include="Towers\" />
   </ItemGroup>
 
 </Project>
