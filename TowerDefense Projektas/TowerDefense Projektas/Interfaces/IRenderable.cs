@@ -2,6 +2,6 @@
 {
     interface IRenderable
     {
-        public void Render();
+        public void RenderNewTower();
     }
 }

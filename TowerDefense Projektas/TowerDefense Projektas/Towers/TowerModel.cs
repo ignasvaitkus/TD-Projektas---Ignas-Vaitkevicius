@@ -13,10 +13,10 @@ namespace TowerDefense_Projektas.Towers
             this.y = y;
         }
 
-        private string middle = "x";
+        private string middle = "X";
 
 
-        public void Render()
+        public void RenderNewTower()
         {
             
                 Console.SetCursorPosition(x, y);

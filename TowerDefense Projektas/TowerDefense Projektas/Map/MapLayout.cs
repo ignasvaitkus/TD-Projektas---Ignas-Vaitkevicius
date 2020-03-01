@@ -6,8 +6,12 @@ namespace TowerDefense_Projektas.Map
 {
     class MapLayout : IRenderable
     {
-       public static string mapLayout;
+        public static string mapLayout;
         public static string computerMapLayout;
+        
+        
+            
+        
         public List<string> mapLine = new List<string>();
         public void Map()
         {
@@ -118,7 +122,7 @@ namespace TowerDefense_Projektas.Map
             computerMapLayout = string.Concat(mapLine);
         }
 
-        public void Render()
+        public void RenderNewTower()
         {
 
                 Console.Write(mapLayout);
