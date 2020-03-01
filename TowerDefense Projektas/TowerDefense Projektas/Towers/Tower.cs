@@ -22,6 +22,8 @@ namespace TowerDefense_Projektas.Towers
             {
                 Console.Clear();
 
+                //foreach (object xe in MapLayout.mapCoordinates)
+                //{ Console.Write(xe); }
                 mapLayout.Render();
                 Render();
                 ConsoleKeyInfo pressedChar = Console.ReadKey(true);
@@ -40,6 +42,14 @@ namespace TowerDefense_Projektas.Towers
                         ToRight();
                         break;
                     case ConsoleKey.Enter:
+
+                        int coordinates=0;
+                        if (Y == 0) coordinates = X;
+                        if (Y > 0) coordinates = Y * 120 + X;
+                       // Console.Clear();
+                       // Console.Write(MapLayout.mapLayout[coordinates]);
+                       // Console.ReadKey();
+                        if (MapLayout.computerMapLayout[coordinates] == ' ')
                         x = 1;
                         break;
                 }

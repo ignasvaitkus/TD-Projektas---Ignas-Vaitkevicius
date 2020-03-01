@@ -13,7 +13,7 @@ namespace TowerDefense_Projektas.Towers
             this.y = y;
         }
 
-        private string middle = "◯";
+        private string middle = "x";
 
 
         public void Render()
