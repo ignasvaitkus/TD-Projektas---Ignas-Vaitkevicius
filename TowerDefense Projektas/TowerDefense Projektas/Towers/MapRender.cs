@@ -11,7 +11,7 @@ namespace TowerDefense_Projektas.Towers
     {
         MapLayout mapLayout = new MapLayout();
         int coordinates = 0;
-        List<int> towers = new List<int>();
+        public static List<int> towers = new List<int>();
         public static List<Tower> tower = new List<Tower>();
         static int towerRender=0;
         
@@ -84,11 +84,15 @@ namespace TowerDefense_Projektas.Towers
                     case ConsoleKey.Enter:
 
                         if (MapLayout.computerMapLayout[coordinates] == ' ')
-                        { 
-                        if(!towers.Contains(coordinates) && GameStart.TowerCount <= 4) towers.Add(coordinates);
-                        towerRender++;
-                            GameStart.TowerCount++;
-                            RenderTowers();
+                        {
+                            if (!towers.Contains(coordinates) && GameStart.TowerCount <= 4)
+                            {
+                                towers.Add(coordinates);
+                                towerRender++;
+                                GameStart.TowerCount++;
+
+                                RenderTowers();
+                            }
                         }
                         break;
 
@@ -171,7 +175,7 @@ namespace TowerDefense_Projektas.Towers
                 if (towers[i] < 120) xCoord = towers[i];
                 else xCoord = towers[i] % 120;
                 Console.SetCursorPosition(xCoord, yCoord);
-                tower.Add(new Tower(GameStart.TowerCount,xCoord, yCoord));
+                if (!towers.Contains(coordinates) && GameStart.TowerCount <= 4) tower.Add(new Tower(GameStart.TowerCount,xCoord, yCoord));
                 Console.Write("X");
             }
         }

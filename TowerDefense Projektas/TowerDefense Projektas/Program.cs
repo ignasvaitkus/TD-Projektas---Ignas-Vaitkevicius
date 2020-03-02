@@ -7,10 +7,11 @@ namespace TowerDefense_Projektas
     {
         static void Main(string[] args)
         {
-             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WindowHeight = 45;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WindowHeight =30;
             MenuController menu = new MenuController();
             menu.Start();
+
         }
     }
 }

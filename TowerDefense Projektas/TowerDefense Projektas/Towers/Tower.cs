@@ -14,5 +14,14 @@ namespace TowerDefense_Projektas.ParentClass
             Id = id;
         }
 
+        public int GetX()
+        {
+            return X;
+        }
+
+        public int GetY()
+        {
+            return Y;
+        }
     }
 }
