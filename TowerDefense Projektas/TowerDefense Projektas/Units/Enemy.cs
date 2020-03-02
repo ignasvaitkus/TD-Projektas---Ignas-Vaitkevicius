@@ -8,10 +8,14 @@ namespace TowerDefense_Projektas.Enemies
     class Enemy:Unit
     {
         private int id;
-
-        public Enemy(int id, int x, int y) : base(x, y)
+        public int Path;
+        public int X;
+        public int Y;
+        public Enemy(int id,int path, int x, int y) : base(x, y)
         {
-
+            X = x;
+            Y = y;
+            Path = path;
             this.id = id;
         }
 
@@ -25,6 +29,39 @@ namespace TowerDefense_Projektas.Enemies
         {
             Console.SetCursorPosition(X, Y);
             return "#"; 
+        }
+
+        public void MoveUp()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.Write(" ");
+            Y--;
+            Console.SetCursorPosition(X, Y);
+            Console.Write("#");
+        }
+        public void MoveDown()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.Write(" ");
+            Y++;
+            Console.SetCursorPosition(X, Y);
+            Console.Write("#");
+        }
+        public void MoveLeft()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.Write(" ");
+            X--;
+            Console.SetCursorPosition(X, Y);
+            Console.Write("#");
+        }
+        public void MoveRight()
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.Write(" ");
+            X++;
+            Console.SetCursorPosition(X, Y);
+            Console.Write("#");
         }
     }
 }
