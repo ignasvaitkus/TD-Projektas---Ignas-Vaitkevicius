@@ -8,7 +8,7 @@ namespace TowerDefense_Projektas.GameSettings
     class EnemyMovement
     {
         // 0 - Down   1 - Up    2 - Left    3 - Right
-        readonly int[,] moveDirections = new int[,] { { 0, 9 }, { 2, 54 }, { 0, 17 }, { 3, 29 }, { 1, 6 }, { 3, 41 }, { 0, 16 }, { 2, 87 }, { 0, 4 } };
+        readonly int[,] moveDirections = new int[,] { { 0, 9 }, { 2, 54 }, { 0, 17 }, { 3, 29 }, { 1, 6 }, { 3, 41 }, { 0, 16 }, { 2, 87 }, { 0, 6 } };
         public static List<Enemy> enemies = new List<Enemy>();
         List<int> direction = new List<int>();
         List<int> stepsTotal = new List<int>();
@@ -26,12 +26,15 @@ namespace TowerDefense_Projektas.GameSettings
             stepsTotal.Add(0);
             while (NotEnd)
             {
-                
-                /*if(EnemyCount<6) */
-                //enemies.Add(new Enemy( 0,0, 87, 0));
-                //direction.Add(0);
-                //stepsMade.Add(0);
-                //stepsTotal.Add(0);
+
+                if (EnemyCount < 6 && GameTicks % 10 == 0)
+                {
+                    enemies.Add(new Enemy(0, 0, 87, 0));
+                    direction.Add(0);
+                    stepsMade.Add(0);
+                    stepsTotal.Add(0);
+                    EnemyCount++;
+                }
                 for(int i=0;i<enemies.Count;i++)
                 {
                     direction[i] = moveDirections[enemies[i].Path, 0];
@@ -44,6 +47,7 @@ namespace TowerDefense_Projektas.GameSettings
                             {
                                 enemies[i].MoveDown();
                                 stepsMade[i]++;
+                                if (enemies[i].Path == 8 && stepsMade[i]==6) NotEnd = false;
                             }
                             else
                             {
@@ -90,7 +94,7 @@ namespace TowerDefense_Projektas.GameSettings
                             else
                             {
                                 stepsMade[i]=0;
-                                enemies[i].Path++;
+                                enemies[i].Path++;                       
                             }
 
                             break;
@@ -103,9 +107,14 @@ namespace TowerDefense_Projektas.GameSettings
               
 
 
-                System.Threading.Thread.Sleep(40);
-                //Console.WriteLine(moveDirections[1, 0]);
+                System.Threading.Thread.Sleep(50);
+                GameTicks++;
+                
             }
+
+            Console.Clear();
+            Console.WriteLine("valio");
+            Console.ReadKey();
         }
     }
 }
