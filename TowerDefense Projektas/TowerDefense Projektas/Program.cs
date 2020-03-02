@@ -7,6 +7,7 @@ namespace TowerDefense_Projektas
     {
         static void Main(string[] args)
         {
+            //Console.CursorVisible = false;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WindowHeight =30;
             MenuController menu = new MenuController();

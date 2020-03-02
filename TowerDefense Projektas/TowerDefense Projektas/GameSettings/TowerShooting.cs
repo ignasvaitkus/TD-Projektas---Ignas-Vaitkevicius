@@ -12,18 +12,25 @@ namespace TowerDefense_Projektas.GameSettings
 
         public void StartShooting(List<Enemy> enemies)
         {
-            
+
             for (int i = 0; i < MapRender.tower.Count; i++)
             {
                 int towerX = MapRender.tower[i].GetX();
                 int towerY = MapRender.tower[i].GetY();
                     int straightKey = 0;
-                
 
-                    int enemyX = enemies[DeadTower].X;
-                    int enemyY = enemies[DeadTower].Y;
+                int enemyX = 1;
+                int enemyY = 1;
+                try
+                {
+                    enemyX = enemies[DeadTower].X;
+                    enemyY = enemies[DeadTower].Y;
+                }
+                catch (ArgumentOutOfRangeException) { }
                     if (enemyX != 1)
                     {
+
+
                         int length;
                         int length1;
                         Console.SetCursorPosition(towerX, towerY);
@@ -88,7 +95,7 @@ namespace TowerDefense_Projektas.GameSettings
                         {
                             Random rnd = new Random();
                             int dodged = rnd.Next(0, 100);
-                        if (dodged % 6 == 0)
+                        if (dodged % 2 == 0)
                         {
                             enemies[DeadTower].X = 1;
                             enemies[DeadTower].Y = 1;

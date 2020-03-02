@@ -21,11 +21,12 @@ namespace TowerDefense_Projektas.GUI
 
         public override void Render()
         {
+            Console.WindowHeight = 30;
             base.Render();
 
             _titleTextBlock.Render();
-            if(EnemyMovement.Winner==1) resultButton = new Button(20, 13, 18, 5, "You Won!");
-            else resultButton = new Button(20, 13, 18, 5, "You Lost!");
+            if(EnemyMovement.Winner==1) resultButton = new Button(50, 13, 18, 5, "You Won!");
+            else resultButton = new Button(50, 13, 18, 5, "You Lost!");
             resultButton.Render();
 
 

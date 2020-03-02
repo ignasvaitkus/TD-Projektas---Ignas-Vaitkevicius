@@ -126,14 +126,15 @@ namespace TowerDefense_Projektas.GameSettings
 
                 if(EnemyCount==5)
                 {
-                    if (enemies[4].X == 1) NotEnd = false;
-                    Winner = 1;
+                    if (enemies[4].X == 1)
+                    {
+                        NotEnd = false;
+                        Winner = 1;
+                    }
                 }
 
             }
-            Console.Clear();
-            Console.Write("valio");
-            Console.ReadKey();
+
         }
     }
 }

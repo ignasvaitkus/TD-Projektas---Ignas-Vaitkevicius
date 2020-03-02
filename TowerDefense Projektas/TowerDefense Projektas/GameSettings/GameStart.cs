@@ -24,6 +24,7 @@ namespace TowerDefense_Projektas.GameSettings
             mapRender.PlaceTowers();
             mapLayout.RenderMapLayout();
             mapRender.RenderTowers();
+            Console.ForegroundColor = ConsoleColor.Green;
             enemyMovement.StartGame();
 
             
