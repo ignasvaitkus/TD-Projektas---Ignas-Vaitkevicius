@@ -1,13 +1,17 @@
-﻿namespace TowerDefense_Projektas.ParentClass
+﻿using TowerDefense_Projektas.Units;
+
+namespace TowerDefense_Projektas.ParentClass
 {
-    class Tower
+    class Tower:Unit
     {
         protected int X;
         protected int Y;
-        public Tower(int x, int y)
+        protected int Id;
+        public Tower(int id,int x, int y):base(x,y)
         {
             X = x;
             Y = y;
+            Id = id;
         }
 
     }

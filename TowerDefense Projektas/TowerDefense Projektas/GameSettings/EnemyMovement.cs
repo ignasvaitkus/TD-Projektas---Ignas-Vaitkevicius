@@ -7,9 +7,11 @@ namespace TowerDefense_Projektas.GameSettings
 {
     class EnemyMovement
     {
+        TowerShooting towerShooting = new TowerShooting();
+
         // 0 - Down   1 - Up    2 - Left    3 - Right
         readonly int[,] moveDirections = new int[,] { { 0, 9 }, { 2, 54 }, { 0, 17 }, { 3, 29 }, { 1, 6 }, { 3, 41 }, { 0, 16 }, { 2, 87 }, { 0, 6 } };
-        public static List<Enemy> enemies = new List<Enemy>();
+        private static List<Enemy> enemies = new List<Enemy>();
         List<int> direction = new List<int>();
         List<int> stepsTotal = new List<int>();
         List<int> stepsMade = new List<int>();
@@ -18,7 +20,7 @@ namespace TowerDefense_Projektas.GameSettings
         public static int EnemyRate = 2;
         public static bool NotEnd = true;
 
-        public void StartMovement()
+        public void StartGame()
         {
             enemies.Add(new Enemy(0, 0, 87, 0));
             direction.Add(0);
@@ -106,14 +108,13 @@ namespace TowerDefense_Projektas.GameSettings
                 }
               
 
-
-                System.Threading.Thread.Sleep(50);
                 GameTicks++;
-                
-            }
+                System.Threading.Thread.Sleep(50);
+                towerShooting.StartShooting(enemies);
 
-            Console.Clear();
-            Console.WriteLine("valio");
+            }
+            Console.ReadKey();
+            Console.Write("valio");
             Console.ReadKey();
         }
     }

@@ -122,9 +122,9 @@ namespace TowerDefense_Projektas.Map
             computerMapLayout = string.Concat(mapLine);
         }
 
-        public void RenderNewTower()
+        public void RenderMapLayout()
         {
-
+            Console.SetCursorPosition(0,0);
                 Console.Write(mapLayout);
             
         }

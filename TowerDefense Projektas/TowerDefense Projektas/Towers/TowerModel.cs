@@ -16,7 +16,7 @@ namespace TowerDefense_Projektas.Towers
         private string middle = "X";
 
 
-        public void RenderNewTower()
+        public void RenderMapLayout()
         {
             
                 Console.SetCursorPosition(x, y);

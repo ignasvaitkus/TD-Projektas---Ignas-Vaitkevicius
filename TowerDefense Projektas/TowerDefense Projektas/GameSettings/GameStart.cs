@@ -10,7 +10,7 @@ namespace TowerDefense_Projektas.GameSettings
     {
         MapLayout mapLayout = new MapLayout();
 
-        MapRender tower = new MapRender(0, 0);
+        MapRender mapRender = new MapRender(0, 0, 0);
 
         EnemyMovement enemyMovement = new EnemyMovement();
 
@@ -21,9 +21,10 @@ namespace TowerDefense_Projektas.GameSettings
 
             mapLayout.ComputerMap();
 
-            tower.PlaceTowers();
-
-            enemyMovement.StartMovement();
+            mapRender.PlaceTowers();
+            mapLayout.RenderMapLayout();
+            mapRender.RenderTowers();
+            enemyMovement.StartGame();
 
             
         }

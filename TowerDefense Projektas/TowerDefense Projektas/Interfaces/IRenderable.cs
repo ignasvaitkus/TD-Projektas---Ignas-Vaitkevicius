@@ -2,6 +2,6 @@
 {
     interface IRenderable
     {
-        public void RenderNewTower();
+        public void RenderMapLayout();
     }
 }

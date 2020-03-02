@@ -12,11 +12,12 @@ namespace TowerDefense_Projektas.Towers
         MapLayout mapLayout = new MapLayout();
         int coordinates = 0;
         List<int> towers = new List<int>();
+        public static List<Tower> tower = new List<Tower>();
         static int towerRender=0;
         
-        public MapRender(int x, int y) : base(x, y)
+        public MapRender(int id,int x, int y) : base(id,x, y)
         {
-
+       
         }
 
 
@@ -24,8 +25,8 @@ namespace TowerDefense_Projektas.Towers
         {
             Console.ForegroundColor = ConsoleColor.White;
             int x = 0;
-            mapLayout.RenderNewTower();
-            RenderNewTower();
+            mapLayout.RenderMapLayout();
+            RenderMapLayout();
             while (x!=1)
             {
                 //Console.Clear();
@@ -39,8 +40,8 @@ namespace TowerDefense_Projektas.Towers
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
-                        mapLayout.RenderNewTower();
-                        RenderNewTower();
+                        mapLayout.RenderMapLayout();
+                        RenderMapLayout();
                         if (towerRender != 0) RenderTowers();
                     }
 
@@ -48,7 +49,7 @@ namespace TowerDefense_Projektas.Towers
                     {
 
                     }
-                    RenderNewTower();
+                    RenderMapLayout();
                     if (towerRender != 0) RenderTowers();
                 }
                 else if (MapLayout.computerMapLayout[coordinates] == ' ')
@@ -57,8 +58,8 @@ namespace TowerDefense_Projektas.Towers
                     {
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.White;
-                        mapLayout.RenderNewTower();
-                        RenderNewTower();
+                        mapLayout.RenderMapLayout();
+                        RenderMapLayout();
                         if (towerRender != 0) RenderTowers();
                     }
                 }
@@ -86,8 +87,8 @@ namespace TowerDefense_Projektas.Towers
                         { 
                         if(!towers.Contains(coordinates) && GameStart.TowerCount <= 4) towers.Add(coordinates);
                         towerRender++;
-                        RenderTowers();
                             GameStart.TowerCount++;
+                            RenderTowers();
                         }
                         break;
 
@@ -105,7 +106,7 @@ namespace TowerDefense_Projektas.Towers
                 Console.SetCursorPosition(X, Y);
                 Console.Write(MapLayout.mapLayout[coordinates]);
                 X--;
-                RenderNewTower();
+                RenderMapLayout();
                 RenderTowers();
             }
         }
@@ -117,7 +118,7 @@ namespace TowerDefense_Projektas.Towers
                 Console.SetCursorPosition(X, Y);
                 Console.Write(MapLayout.mapLayout[coordinates]);
                 X++;
-                RenderNewTower();
+                RenderMapLayout();
                 RenderTowers();
             }
         }
@@ -129,7 +130,7 @@ namespace TowerDefense_Projektas.Towers
                 Console.SetCursorPosition(X, Y);
                 Console.Write(MapLayout.mapLayout[coordinates]);
                 Y--;
-                RenderNewTower();
+                RenderMapLayout();
                 RenderTowers();
             }
         }
@@ -142,15 +143,15 @@ namespace TowerDefense_Projektas.Towers
 
                 Console.Write(MapLayout.mapLayout[coordinates]);
                 Y++;
-                RenderNewTower();
+                RenderMapLayout();
                 RenderTowers();
             }
         }
 
-        public void RenderNewTower()
+        public void RenderMapLayout()
         {
             TowerModel towerModel = new TowerModel(X, Y);
-            towerModel.RenderNewTower();
+            towerModel.RenderMapLayout();
 
         }
 
@@ -170,6 +171,7 @@ namespace TowerDefense_Projektas.Towers
                 if (towers[i] < 120) xCoord = towers[i];
                 else xCoord = towers[i] % 120;
                 Console.SetCursorPosition(xCoord, yCoord);
+                tower.Add(new Tower(GameStart.TowerCount,xCoord, yCoord));
                 Console.Write("X");
             }
         }
